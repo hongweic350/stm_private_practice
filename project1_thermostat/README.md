@@ -32,7 +32,7 @@ STM32F103C8T6 + DHT11 + 0.96" OLED + W25Q64 的桌面小系统：**测室温、�
 | OLED SCL | **PB8** | 软件 I2C（开漏） | 从机地址 `0x78` |
 | OLED SDA | **PB9** | 软件 I2C（开漏） | |
 | DHT11 DATA | **PA0** | 单总线（软件时序） | 数据线需 4.7k~10k 上拉 |
-| 风扇 PWM | **PA1** | TIM2_CH2，复用推挽 | 1 kHz，经 MOS/三极管驱动 |
+| 风扇 PWM | **PA1** | TIM2_CH2，复用推挽 | 1 kHz；经 TB6612 单通道驱动，方向固定（STBY=3.3V，AIN1=0，AIN2=1） |
 | 按键 K1 | **PB12** | GPIO 输入下拉 | 按下为高 → 下一页 |
 | 按键 K2 | **PB15** | GPIO 输入下拉 | 按下为高 → 上一页 |
 | W25Q64 CS | **PA4** | GPIO 推挽 | 软件片选 |
@@ -43,6 +43,14 @@ STM32F103C8T6 + DHT11 + 0.96" OLED + W25Q64 的桌面小系统：**测室温、�
 - 主控：STM32F103C8T6 最小系统板，72 MHz，标准外设库（无 HAL / CubeMX）
 - 存储：W25Q64（8 MB SPI Flash），只用了**扇区 0 的前 4 KB**
 - 供电：USB 5 V；风扇单独接 5 V，**电机的续流二极管不能省**
+
+### 接线图
+
+![接线图](docs/wiring.svg)
+
+- 矢量版 [`docs/wiring.svg`](docs/wiring.svg)、位图版 [`docs/wiring.png`](docs/wiring.png)，点开可放大；
+- 实物照片 [`docs/wiring_photo.jpg`](docs/wiring_photo.jpg)；
+- 图由脚本生成，改了接线就改这几行常量再重跑：[`docs/wiring_diagram.py`](docs/wiring_diagram.py)。
 
 ---
 
