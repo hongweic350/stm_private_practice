@@ -1,0 +1,22 @@
+# ===== Keil MDK-ARM 编译产物 =====
+Objects/
+Listings/
+DebugConfig/
+RTE/
+# ===== 编译中间文件 =====
+*.o
+*.d
+*.crf
+*.dep
+*.axf
+*.hex
+*.bin
+*.map
+*.lst
+*.lnp
+*.htm
+*.build_log.htm
+# ===== Keil 用户界面/调试配置（跟机器绑定，换电脑会冲突）=====
+*.uvguix.*
+*.uvoptx
+*.bak
